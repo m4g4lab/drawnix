@@ -1,17 +1,12 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/eslint.config.js",
-      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/vitest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
@@ -29,30 +24,16 @@
       }
     },
     {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
       "plugin": "@nx/playwright/plugin",
       "options": {
         "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
       }
     }
   ],
   "generators": {
     "@nx/react": {
       "application": {
-        "babel": true,
         "style": "scss",
-        "linter": "eslint",
         "bundler": "vite"
       },
       "component": {
@@ -60,8 +41,7 @@
       },
       "library": {
         "style": "scss",
-        "linter": "eslint",
-        "unitTestRunner": "jest"
+        "unitTestRunner": "vitest"
       }
     }
   },
@@ -80,5 +60,9 @@
         "tag": false
       }
     }
+  },
+  "analytics": false,
+  "tui": {
+    "enabled": false
   }
 }

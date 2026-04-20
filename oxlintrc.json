@@ -1,0 +1,11 @@
+{
+  "include": ["apps/", "packages/"],
+  "exclude": ["node_modules/", "dist/", "**/*.spec.tsx", "**/*.spec.ts", "**/node_modules/**"],
+  "typescript": {
+    "tsconfigPath": "./tsconfig.json"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-unused-expressions": "off"
+  }
+}

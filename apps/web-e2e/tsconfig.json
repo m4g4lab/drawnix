@@ -3,8 +3,10 @@
   "compilerOptions": {
     "allowJs": true,
     "outDir": "../../dist/out-tsc",
-    "module": "commonjs",
-    "sourceMap": false
+    "module": "esnext",
+    "target": "es2017",
+    "sourceMap": false,
+    "types": ["node"]
   },
   "include": [
     "**/*.ts",

@@ -1,11 +1,10 @@
 import type * as PresetsModule from './presets';
 
-jest.mock('@plait/core', () => ({
+vi.mock('@plait/core', () => ({
   DEFAULT_COLOR: '#000000',
 }));
 
-const { resolveFreehandDrawOptions } =
-  jest.requireActual<typeof PresetsModule>('./presets');
+const { resolveFreehandDrawOptions } = await import('./presets');
 
 describe('freehand utils', () => {
   it('preserves theme-following presets when color is omitted', () => {

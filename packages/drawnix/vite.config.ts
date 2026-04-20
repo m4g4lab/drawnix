@@ -25,6 +25,13 @@ export default defineConfig({
 
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    include: ['src/**/*.spec.{ts,tsx}'],
+    reporters: ['default'],
+  },
+
   build: {
     outDir: '../../dist/drawnix',
     emptyOutDir: true,
@@ -62,7 +69,6 @@ export default defineConfig({
         '@plait/mind',
         'roughjs/bin/core',
         '@plait/text-plugins',
-        'lodash',
         'slate',
         'slate-react',
         'slate-dom',

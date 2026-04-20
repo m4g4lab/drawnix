@@ -24,6 +24,14 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
 
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
+      },
+    },
+  },
+
   build: {
     outDir: '../../dist/apps/web',
     emptyOutDir: true,
