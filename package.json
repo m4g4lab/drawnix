@@ -10,7 +10,12 @@
     "build:web": "nx build web",
     "test": "nx run-many -t=test",
     "release": "node scripts/release-version.js",
-    "pub": "npm run build && node scripts/publish.js"
+    "pub": "npm run build && node scripts/publish.js",
+    "prepare": "husky && git config core.hooksPath .husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "oxlint",
+    "*.{ts,tsx,js,jsx,css,scss}": "oxfmt"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.24",
@@ -55,7 +60,9 @@
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "^6.0.1",
+    "husky": "^9.1.7",
     "jsdom": "~29.0.2",
+    "lint-staged": "^16.4.0",
     "nx": "22.6.5",
     "oxfmt": "^0.46.0",
     "oxlint": "^1.61.0",
